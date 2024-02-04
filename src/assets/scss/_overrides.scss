@@ -1,0 +1,47 @@
+.ant-btn-primary {
+    background-color: #0066ff;
+    span {
+        line-height: 24px;
+        font-weight: 600;
+        letter-spacing: 0.0056em;
+    }
+    &:disabled span {
+        color: #7c7d8b;
+    }
+}
+
+.ant-btn {
+    // 버튼 클릭시 ripple 애니메이션 제거
+    .wave-motion-appear {
+        display: none;
+    }
+
+    border-radius: 3px;
+    &.ant-btn-lg {
+        border-radius: 5px;
+    }
+
+    &.ant-btn-default {
+        height: 38px;
+        span {
+            font-size: 14px;
+        }
+
+        &:not(.ant-btn-disabled):hover {
+            background-color: #424242;
+            border-color: #424242;
+            color: #242424 !important;
+        }
+
+        &:not(.ant-btn-disabled):active {
+            background-color: #424242;
+            border-color: #424242;
+        }
+
+        &:not(.ant-btn-disabled):disabled {
+            background-color: #d9d9d9;
+            border-color: #d9d9d9;
+            color: #00000066 !important;
+        }
+    }
+}
