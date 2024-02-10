@@ -34,8 +34,8 @@ const themes = {
         Button: {
             primaryShadow: "",
             fontWeight: 500,
-            defaultBg: "#0066ff",
-            colorBgContainerDisabled: "#0066ff",
+            defaultHoverBg: "#ffffff",
+            colorBgContainerDisabled: "#ffffff",
             borderColorDisabled: "#CACBD0 !important",
         },
         Pagination: {

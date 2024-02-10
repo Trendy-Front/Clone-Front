@@ -1,5 +1,6 @@
 import Home from "@/page/MarkUp";
 import SignIn from "@/page/user/signin/Index";
+import SignUp from "@/page/user/signup/Index";
 import { Routes, Route } from "react-router-dom";
 
 const Router = () => {
@@ -7,7 +8,7 @@ const Router = () => {
         <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/signin" element={<SignIn />}></Route>
-            {/* <Route path="/signup" element={<Home />}></Route> */}
+            <Route path="/signup" element={<SignUp />}></Route>
         </Routes>
     );
 };
