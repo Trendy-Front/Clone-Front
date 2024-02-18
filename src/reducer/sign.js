@@ -15,6 +15,8 @@ const initialState = {
 const signUpReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_USER_INFO:
+            console.log("signUpReducer 실행됨");
+            console.log(action.payload);
             return {
                 ...state,
                 ...action.payload,
