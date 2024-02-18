@@ -3,7 +3,11 @@ import { Button } from "antd";
 import { updateUserInfo } from "@/reducer/sign";
 import { useState } from "react";
 import { Map } from "immutable";
+import { useDispatch } from "react-redux";
+
 export default function UserSignUp() {
+    const dispatch = useDispatch(); // useDispatch 훅을 사용하여 dispatch 함수 가져오기
+
     const [inputs, setInputs] = useState(
         Map({
             email: "",
@@ -16,8 +20,6 @@ export default function UserSignUp() {
 
     const onChange = (e) => {
         const { name, value } = e.target;
-        console.log(name);
-        console.log(value);
         let inputValue = value.trim();
         switch (name) {
             case "email":
@@ -34,6 +36,10 @@ export default function UserSignUp() {
                 break;
         }
         setInputs((prev) => prev.set(name, inputValue));
+    };
+
+    const handleSignUp = () => {
+        dispatch(updateUserInfo(inputs.toJS())); // updateUserInfo 액션을 dispatch하여 사용자 정보 업데이트
     };
 
     return (
@@ -62,7 +68,12 @@ export default function UserSignUp() {
                         이름
                     </div>
                     <div>
-                        <InputNormal placeholder="이름을 입력해주세요." />
+                        <InputNormal
+                            placeholder="이름을 입력해주세요."
+                            value={inputs.get("name")}
+                            onChange={onChange}
+                            name="name"
+                        />
                     </div>
                 </div>
                 <div>
@@ -70,7 +81,12 @@ export default function UserSignUp() {
                         휴대폰번호
                     </div>
                     <div>
-                        <InputNormal placeholder="(예시) 01012345678" />
+                        <InputNormal
+                            placeholder="(예시) 01012345678"
+                            value={inputs.get("phone")}
+                            onChange={onChange}
+                            name="phone"
+                        />
                     </div>
                 </div>
                 <div>
@@ -78,7 +94,12 @@ export default function UserSignUp() {
                         비밀번호
                     </div>
                     <div>
-                        <InputNormal placeholder="비밀번호를 입력해주세요" />
+                        <InputNormal
+                            placeholder="비밀번호를 입력해주세요"
+                            value={inputs.get("password")}
+                            onChange={onChange}
+                            name="password"
+                        />
                     </div>
                     <div className="mt-2">
                         <InputNormal placeholder="비밀번호를 다시 한번 입력해주세요" />
@@ -95,6 +116,7 @@ export default function UserSignUp() {
                         type="primary"
                         size="large"
                         className="!h-[54px] w-full rounded-[5px] border"
+                        onClick={handleSignUp}
                     >
                         가입하기
                     </Button>
